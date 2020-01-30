@@ -1,4 +1,4 @@
-package edu.escuelaing.arep.designprimer;
+package edu.escuelaing.arep;
 import static spark.Spark.*;
 import com.google.gson.Gson;
 
@@ -10,7 +10,6 @@ public class SparkWebApp {
 		port(getPort());
 		staticFiles.location("/WebCalculator");
 		final Gson gson = new Gson();
-		port(getPort());
 		
         get("/calculator/:data", (request, response) -> {
 			//response.redirect("/index.html");
