@@ -3,7 +3,10 @@ package edu.escuelaing.arep.calculator;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import edu.escuelaing.arep.entities.LinkedListP;
+import java.util.Arrays;
+import java.util.*;
+
+import edu.escuelaing.arep.calculator.entities.LinkedListP;
 
 /**
  * Calculator class 
@@ -14,42 +17,55 @@ import edu.escuelaing.arep.entities.LinkedListP;
 public class CalculatorApp {
 	
 	
-	 public static void main(String[] args)throws Exception { 
-		 LinkedListP<Double> linkedListcase1 = TextTestToLinkedListOfDoubles("resources\\test1.txt");
-		 Double mean1 = mean(linkedListcase1);
-		 Double standDev1 = standarDeviation(linkedListcase1);
-		 System.out.println("Mean Case 1: " +mean1);
-		 System.out.println("Standard Deviation Case 1: " + standDev1+"\n");
-		 
-		 LinkedListP<Double> linkedListcase2 = TextTestToLinkedListOfDoubles("resources\\test2.txt");
-		 Double mean2 = mean(linkedListcase2);
-		 Double standDev2 = standarDeviation(linkedListcase2);
-	     System.out.println("Mean Case 2: " +mean2);
-	     System.out.println("Standard Deviation Case 2: " + standDev2);
-	  } 
-	 
-	 
-	 /**
+	public static void main(String[] args)throws Exception { 
+		LinkedListP<Double> linkedListcase1 = TextTestToLinkedListOfDoubles("src\\main\\resources\\tests\\test1.txt");
+		Double mean1 = mean(linkedListcase1);
+		Double standDev1 = standarDeviation(linkedListcase1);
+		System.out.println("Mean Case 1: " +mean1);
+		System.out.println("Standard Deviation Case 1: " + standDev1+"\n");
+		
+		LinkedListP<Double> linkedListcase2 = TextTestToLinkedListOfDoubles("src\\main\\resources\\tests\\test2.txt");
+		Double mean2 = mean(linkedListcase2);
+		Double standDev2 = standarDeviation(linkedListcase2);
+		System.out.println("Mean Case 2: " +mean2);
+		System.out.println("Standard Deviation Case 2: " + standDev2);
+	} 
+	
+	public static String calculator (String dataList) {
+		LinkedListP<Double> linkedList = new LinkedListP<Double>();
+		List<String> numberList = Arrays.asList(dataList.split(","));
+		for (int i = 0; i < numberList.size(); i++) {
+			linkedList.add(Double.parseDouble(numberList.get(i)));
+		}
+		Double mean = mean(linkedList);
+		Double standDev = standarDeviation(linkedList);
+		String result ="{\"mean\":"+mean+",\"standDev\":"+standDev+"}";
+		return result;
+		
+	}
+	
+	
+	/**
 	  * Creates a linkedList of Doubles from a file of double numbers
 	  * @param testPath the path of the file
 	  * @return A linked List of the double numbers contained in the file
 	  * @throws Exception
 	  */
-	 public static LinkedListP<Double> TextTestToLinkedListOfDoubles (String testPath) throws Exception {
-		 File file = new File(testPath); 
-		 LinkedListP<Double> linkedList = new LinkedListP<Double>();
-		 BufferedReader br = new BufferedReader(new FileReader(file)); 
-		 String st; 
-		 st = br.readLine();
-		 Double testDouble;
-		 while (st != null) {
-			 //System.out.println(st); 
-			 testDouble = Double.parseDouble(st);
-			 linkedList.add(testDouble);
-	         st = br.readLine();
-		 }   
-		 return linkedList;
-	 }
+	public static LinkedListP<Double> TextTestToLinkedListOfDoubles (String testPath) throws Exception {
+		File file = new File(testPath); 
+		LinkedListP<Double> linkedList = new LinkedListP<Double>();
+		BufferedReader br = new BufferedReader(new FileReader(file)); 
+		String st; 
+		st = br.readLine();
+		Double testDouble;
+		while (st != null) {
+			//System.out.println(st); 
+			testDouble = Double.parseDouble(st);
+			linkedList.add(testDouble);
+			st = br.readLine();
+		}   
+		return linkedList;
+	}
 	
 	/**
 	 * Calculate the mean of a list of float numbers

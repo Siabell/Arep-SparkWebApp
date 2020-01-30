@@ -1,7 +1,7 @@
 package edu.escuelaing.arep;
 
 import edu.escuelaing.arep.calculator.CalculatorApp;
-import edu.escuelaing.arep.entities.LinkedListP;
+import edu.escuelaing.arep.calculator.entities.LinkedListP;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

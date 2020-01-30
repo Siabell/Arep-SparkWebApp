@@ -1,4 +1,4 @@
-package edu.escuelaing.arep.exception;
+package edu.escuelaing.arep.calculator.exception;
 
 public class MathLinkedListException extends Exception  {
 

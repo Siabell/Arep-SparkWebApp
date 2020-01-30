@@ -1,4 +1,4 @@
-package edu.escuelaing.arep.entities;
+package edu.escuelaing.arep.calculator.entities;
 
 /**
  * Node Class 

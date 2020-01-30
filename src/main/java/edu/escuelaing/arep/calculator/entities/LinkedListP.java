@@ -1,9 +1,9 @@
-package edu.escuelaing.arep.entities;
+package edu.escuelaing.arep.calculator.entities;
 
 import java.io.Serializable;
 import java.util.*;
 
-import edu.escuelaing.arep.exception.MathLinkedListException;
+import edu.escuelaing.arep.calculator.exception.MathLinkedListException;
 
 /**
  * LinkedList Class 
