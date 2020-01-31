@@ -1,7 +1,7 @@
 # AREP-SparkWebApp
 
-
-This project has the operations to calculate the mean and standard deviation of a set of n real numbers. The project implements my own implementation of a linked list.
+This web application allows you to calculate the mean and standard deviation of a set of data that is passed through a web page using Spark micro framework. 
+The project implements my own implementation of a linked list.
 
 ## Getting Started
 
@@ -24,19 +24,30 @@ This command will generate the documentation in the folder
  /target/site/apidocs/
  ```
 
-To see the documentation of this project, access to the following link: [documentation](https://github.com/Siabell/AREP-lab1-introduccion/blob/master/target/site/apidocs/index.html) .
-
-
-Test the compiled and packaged JAR with the following command:
+To run the application in the heroku local web in windows, change the Profcile file to:
 
 ```
-java -cp target/Proyecto-Intro-1.0-SNAPSHOT.jar edu.escuelaing.arep.CalculatorApp
+web: java -cp target\classes;target\dependency\* edu.escuelaing.arep.SparkWebApp
 ```
-![Drag Racing](resources/images/TestResult.PNG)
+and execute the following command on your console:
+
+```
+heroku local web
+```
+The application will be available in:
+
+```
+ http://localhost:5000/
+```
+
+
+
+
+![Drag Racing](src/main/resources/images/calculator.PNG)
 
 ### Prerequisites
 
-You will need maven and java installed on your machine to employ this program
+You will need maven java installed on your machine to employ this program
 
 
 ## Running the tests
@@ -46,10 +57,18 @@ In order to run the automated tests for this project execute the following comma
 ```
 mvn test
 ```
+![test](src/main/resources/images/textmvn.PNG)
+
+## Deployment
+
+[Web Calculator App heroku](https://sparkwebcalculator.herokuapp.com/) - heroku deploy
 
 ## Built With
 
 * [Maven](https://maven.apache.org/) - Dependency Management
+* [Spark](http://sparkjava.com/) - Java micro Framework
+* [Heroku](https://www.heroku.com/) - Deploy Enviroment
+
 
 ## Authors
 
